@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Ratespiel</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function generiereZufallszahl() {
+            return Math.floor(Math.random() * 101);
+        }
+
+        function ratespiel() {
+           
+            let zufallsZahl = generiereZufallszahl();
+    let versuche = 0;
+    let rateVersuch;
+    let fertig = false;
+
+    while (versuche < 10 && !fertig) {
+        rateVersuch = Number(prompt('Raten einer Zahl zwischen 0 und 100'));
+        if (rateVersuch > zufallsZahl) {
+            alert('Leider falsch! Die Schätzung ist höher als die Zufallszahl. Rate noch einmal');
+        } else if (rateVersuch < zufallsZahl) {
+            alert('Leider falsch! Die Schätzung ist niedriger als die Zufallszahl. Rate noch einmal');
+        } else if (rateVersuch === zufallsZahl) {
+            alert('Richtig! Die Zahl war ' + zufallsZahl);
+            fertig = true;
+        }
+        versuche++;
+    }
+
+    if (!fertig) {
+        alert('Leider falsch. Die richtige Zahl war ' + zufallsZahl);
+    }
+
+    if (versuche == 10) {
+        alert('Leider hast du die Zahl innerhalb von 10 Versuchen nicht geschafft');
+    }
+    
+    erneut_spielen = confirm('Möchtest du nocheinmal spielen?);
+
+}   
+
+
+// Starte das Spiel
+ratespiel();
+
+  
+    </script>
+</body>
+</html>
