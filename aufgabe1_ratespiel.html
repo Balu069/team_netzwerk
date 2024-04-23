@@ -35,7 +35,16 @@
     if (!fertig) {
         alert('Leider falsch. Die richtige Zahl war ' + zufallsZahl);
     }
-}
+
+    if (versuche == 10) {
+        alert('Leider hast du die Zahl innerhalb von 10 Versuchen nicht geschafft');
+        if (confirm('Möchtest du nocheinmal spielen?')) {
+            ratespiel();
+        }  
+    }
+    
+}   
+
 
 // Starte das Spiel
 ratespiel();
