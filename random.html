@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Zahlenraten Spiel</title>
+</head>
+<body>
+<h1>Zahlenraten Spiel</h1>
+<p id="instructions">Wie groß soll die Zahl sein? (zwischen 10 und 100)</p>
+<input type="number" id="maxNumber" min="10" max="100" required>
+<button onclick="setRange()">Setzen</button>
+
+<div id="game" style="display:none;">
+    <p id="rangeDisplay"></p>
+    <p id="guessInstructions">Gib deine Zahl ein (zwischen 0 und <span id="maxValueSpan">100</span>)</p>
+    <input type="number" id="userGuess" min="0" max="100" required>
+    <button onclick="makeGuess()">Rate</button>
+    <p id="feedback"></p>
+    <button onclick="resetGame()" style="display:none;" id="resetButton">Nochmal spielen</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
