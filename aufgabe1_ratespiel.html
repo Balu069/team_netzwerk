@@ -13,14 +13,22 @@
         }
 
         function ratespiel() {
-           
-            let zufallsZahl = generiereZufallszahl();
+    let zufallsZahl = generiereZufallszahl();
     let versuche = 0;
+    let bereitsEingegeben = [];
     let rateVersuch;
     let fertig = false;
 
     while (versuche < 10 && !fertig) {
-        rateVersuch = Number(prompt('Raten einer Zahl zwischen 0 und 100'));
+        rateVersuch = Number(prompt('Raten Sie die Zahl zwischen 0 und 100'));
+
+        // Prüft, ob die Zahl bereits eingegeben wurde
+        if (bereitsEingegeben.includes(rateVersuch)) {
+            alert('Alzheimer incoming? Du hast die Zahl schon eingetragen, versuche es noch einmal!');
+            continue; // Springt zum nächsten Durchlauf der Schleife, ohne den Zähler zu erhöhen
+        }
+
+        bereitsEingegeben.push(rateVersuch); // Fügt die neue Zahl zum Array hin
         if (rateVersuch > zufallsZahl) {
             alert('Leider falsch! Die Schätzung ist höher als die Zufallszahl. Rate noch einmal');
         } else if (rateVersuch < zufallsZahl) {
@@ -38,13 +46,11 @@
 
     if (versuche == 10) {
         alert('Leider hast du die Zahl innerhalb von 10 Versuchen nicht geschafft');
-        if (confirm('Möchtest du nocheinmal spielen?')) {
+    }
+    if (confirm('Möchtest du nocheinmal spielen?')) {
             ratespiel();
         }  
-    }
-    
-}   
-
+}
 
 // Starte das Spiel
 ratespiel();
