@@ -52,8 +52,3 @@ $(function () {
     if (operation === "*") return a * b;
     if (operation === "/") return a / b;
   };
-  document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.key.toLowerCase() === 'q') { // Um sicherzugehen, dass die Tastenüberprüfung immer korrekt funktioniert, egal ob großß- oder Kleinschreibung
-        document.body.style.backgroundColor = document.body.style.backgroundColor === 'hotpink' ? 'white' : 'hotpink';
-    }
-});
